@@ -3,6 +3,8 @@ using Marketplace.DataAccess.Repository;
 using Marketplace.DataAccess.Repository.IRepository;
 using Marketplace.Models;
 using Marketplace.Models.ViewModels;
+using Marketplace.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Routing.Constraints;
@@ -10,6 +12,7 @@ using Microsoft.AspNetCore.Routing.Constraints;
 namespace Marketplace_Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class ProductController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
